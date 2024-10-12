@@ -8,7 +8,6 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 
 
 @Service
@@ -22,12 +21,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String createProduct(CreateProductRestModel productRestModel) throws Exception{
+    public String createProduct(CreateProductRestModel productRestModel) throws Exception {
         String productId = UUID.randomUUID().toString();
 
         ProductCreatedEvent productCreatedEvent = new ProductCreatedEvent(productId, productRestModel.getTitle(), productRestModel.getPrice(), productRestModel.getQuantity());
 
+        LOGGER.info("Before publishing a ProductCreatedEvent");
         SendResult<String, ProductCreatedEvent> result = kafkaTemplate.send("product-created-events-topic", productId, productCreatedEvent).get();
+
+        //Printing the information related to partition , topic , offset
+        LOGGER.info("Partition: " + result.getRecordMetadata().partition());
+        LOGGER.info("Topic: " + result.getRecordMetadata().topic());
+        LOGGER.info("Offset: " + result.getRecordMetadata().offset());
 
 
         LOGGER.info("***** Retuning product id");

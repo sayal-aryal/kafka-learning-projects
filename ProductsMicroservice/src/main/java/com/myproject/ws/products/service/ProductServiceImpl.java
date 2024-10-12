@@ -22,21 +22,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String createProduct(CreateProductRestModel productRestModel) {
+    public String createProduct(CreateProductRestModel productRestModel) throws Exception{
         String productId = UUID.randomUUID().toString();
 
         ProductCreatedEvent productCreatedEvent = new ProductCreatedEvent(productId, productRestModel.getTitle(), productRestModel.getPrice(), productRestModel.getQuantity());
-        CompletableFuture<SendResult<String, ProductCreatedEvent>> future = kafkaTemplate.send("product-created-events-topic", productId, productCreatedEvent);
 
-        future.whenComplete((result, exception) -> {
-            if (exception != null) {
-                LOGGER.error("***** Failed to send message: " + exception.getMessage());
-            } else {
-                LOGGER.info("***** Message sent successfully: " + result.getRecordMetadata());
-            }
-        });
+        SendResult<String, ProductCreatedEvent> result = kafkaTemplate.send("product-created-events-topic", productId, productCreatedEvent).get();
+
+
         LOGGER.info("***** Retuning product id");
-        //future.join(); //this method block the current thread until the future thread is complete. if we want to wait asynchronous communication to complete then we can use join.Basically It becomes synchronous.
         return productId;
     }
 }

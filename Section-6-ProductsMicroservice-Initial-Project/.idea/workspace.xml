@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6e1743f-73b6-454b-a9e8-ac5ccac2bce2" name="Changes" comment="" />
+    <list default="true" id="b6e1743f-73b6-454b-a9e8-ac5ccac2bce2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -30,12 +35,14 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "send-message-synchronously",
     "last_opened_file_path": "E:/Apache kafka Udemy Course/ProductsMicroservice",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "6598539d8a612688618f3055d99a508d",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -57,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728577003482</updated>
       <workItem from="1728577004787" duration="1316000" />
+      <workItem from="1728787442528" duration="598000" />
     </task>
     <servers />
   </component>

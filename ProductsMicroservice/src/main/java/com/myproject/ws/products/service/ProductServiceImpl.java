@@ -1,5 +1,6 @@
 package com.myproject.ws.products.service;
 
+import com.myproject.ws.core.ProductCreatedEvent;
 import com.myproject.ws.products.rest.CreateProductRestModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

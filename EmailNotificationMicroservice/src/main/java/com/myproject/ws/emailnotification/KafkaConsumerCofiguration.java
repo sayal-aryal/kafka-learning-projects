@@ -2,7 +2,6 @@ package com.myproject.ws.emailnotification;
 
 import com.myproject.ws.emailnotification.error.NotRetryableException;
 import com.myproject.ws.emailnotification.error.RetryableException;
-import jakarta.servlet.http.HttpServletResponse;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -44,7 +43,7 @@ public class KafkaConsumerCofiguration {
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer.class);
         config.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, JsonDeserializer.class);
         config.put(JsonDeserializer.TRUSTED_PACKAGES, environment.getProperty("spring.kafka.consumer.properties.spring.json.trusted.packages"));
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, environment.getProperty("spring.kafka.consumer.group-id"));
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, environment.getProperty("consumer.group-id"));
         return new DefaultKafkaConsumerFactory<>(config);
     }
 
